@@ -39,15 +39,16 @@ public class Secici {
 
                 case 3:
                     RehberIslemleri.kisiListele();
-
-                    String LISTEDEN_SİLMEK_ISTEDIGINIZ_ADI_GIRINIZ_YAZISI = "Listeden silmek istediğiniz adi giriniz";
-
-                    String silinecekAd= inputs.stringDegerIste(scanner, LISTEDEN_SİLMEK_ISTEDIGINIZ_ADI_GIRINIZ_YAZISI);
+                    String silinecekAd= inputs.stringDegerIste(scanner, StringYazici.LISTEDEN_SİLMEK_ISTEDIGINIZ_ADI_GIRINIZ_YAZISI);
 
                     RehberIslemleri.kisiSilByAd(silinecekAd);
 
                     break;
                 case 4:
+                    RehberIslemleri.rehberdeBaslayanHarfAramasiYap(scanner,StringYazici.ILE_BASLAYAN_HARF_ARAMA_YAZISI,inputs);
+                    break;
+
+                case 5:
                     devamEdilsin = false;
                     break;
             }

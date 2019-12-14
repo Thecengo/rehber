@@ -1,5 +1,6 @@
 package com.rehber.rehber_islemleri;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,24 +20,28 @@ public class RehberIslemleri {
 	}
 
 	public static void kisiSilByAd(String silinecekAd) {
-		for (Person person1 : App.personsList){
-			if (person1.getAd().equals(silinecekAd)){
-				App.personsList.remove(person1);
-				System.out.println(person1.getAd() + "basari ile silinmistir.");
+		Iterator<Person> itr = App.personsList.iterator();
+
+		while(itr.hasNext()){
+			Person person = itr.next();
+			if(person.getAd().equals(silinecekAd)){
+				itr.remove();
+				System.out.println(person.getAd() + "başarı ile silinmistir");
 			}
 		}
 	}
 
 	public static void kisiSilById(int id) {
+		Iterator<Person> itr = App.personsList.iterator();
 
-		for(Person person1 : App.personsList){
-			if(id == person1.getId()){
-				int index = id -1;
-				App.personsList.remove(index);
-				System.out.println(person1.getAd() + "basari ile silinmistir.");
+		while(itr.hasNext()){
+			Person person = itr.next();
+			if(person.getId() == id){
+				itr.remove();
+				System.out.println(person.getAd() + "başarı ile silinmistir");
 			}
-
 		}
+
 	}
 
 	public static void kisiListele() {
@@ -50,14 +55,14 @@ public class RehberIslemleri {
 	}
 
 
-	public void rehberdeBaslayanHarfAramasiYap(List<Person> personList, Scanner scanner) {
+	public static void rehberdeBaslayanHarfAramasiYap(Scanner scanner, String istenilenCumle, Input input) {
 		
-		String aranacakHarfler = scanner.nextLine();
+		String aranacakHarfler = input.stringDegerIste(scanner, istenilenCumle);
 		
-		for(int i = 0; i < personList.size(); i++) {
-			String ad = personList.get(i).getAd();
+		for(int i = 0; i < App.personsList.size(); i++) {
+			String ad = App.personsList.get(i).getAd();
 			if(ad.startsWith(aranacakHarfler)) {
-				System.out.println(ad);
+				System.out.printf("%d \t %s \t %s \t %s \n",App.personsList.get(i).getId(), App.personsList.get(i).getAd(),App.personsList.get(i).getSoyad(),App.personsList.get(i).getTel());
 			}
 		}
 		

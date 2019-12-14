@@ -39,9 +39,10 @@ public class App
 		System.out.println("Lütfen rehberde yapılacak işlemleri seciniz.");
 		System.out.println("0 - Kisi ekle");
 		System.out.println("1 - Ad ve soyada göre listeleme yap");
-		System.out.println("2 - Kisi sil ");
+		System.out.println("2 - id ile kisi sil ");
 		System.out.println("3 - Ada göre kisi sil");
-		System.out.println("4 - Cikis yap");
+		System.out.println("4 - Rehberde baslayan ad ile arama yap");
+		System.out.println("5 - Cikis yap");
 		
 	}
 
