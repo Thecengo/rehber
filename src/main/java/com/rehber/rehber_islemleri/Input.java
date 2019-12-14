@@ -5,21 +5,21 @@ import java.util.Scanner;
 public class Input {
 	
 	
-	public String adIste(Scanner scanner) {
-		System.out.println("Lütfen ad giriniz: ");
-		
+	public String stringDegerIste(Scanner scanner, String istenilenCumle) {
+		System.out.println(istenilenCumle);
+
 		return scanner.nextLine();
 	}
+
+	public int intSayiDegeriIste(Scanner scanner, String istenilenCumle){
+
+		System.out.println(istenilenCumle);
+
+		return scanner.nextInt();
+	}
+
 	
-	public String soyadIste(Scanner scanner) {
-		System.out.println("Lütfen soyad giriniz: ");
-		return scanner.nextLine();
-	}
-	
-	public String telNoIste(Scanner scanner) {
-		System.out.println("Lütfen tel no giriniz: ");
-		return scanner.nextLine();
-	}
+
 	
 
 }

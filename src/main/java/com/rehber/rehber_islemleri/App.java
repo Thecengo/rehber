@@ -9,92 +9,41 @@ import java.util.Scanner;
 public class App 
 {
 	
-	List<Person> personsList;
-	
-	static boolean devamEdilsinMi = true;
-	
+	static List<Person> personsList = new ArrayList<>();
+
 	static RehberIslemleri rehberIslemleri = new RehberIslemleri();
-	
-	static Desen desenlerim = new Desen();
+
 	
 
 	
 	public App() {
-		
-		this.personsList = new ArrayList<Person>();
+
 	}
 	
     public static void main( String[] args )
     {
 
-    	
     	Scanner scanner = new Scanner(System.in);
-    	
-    	Secim islemSecimi = new Secim();
-    	
+
+    	Secici secici = new Secici();
     	Input inputs = new Input();
-    	
-  
-    	
-    	
-		while(devamEdilsinMi) {
-			
-			System.out.println(desenlerim.cizgiDeseni);
-			
-			int secim = secimIste(scanner);
-			
-			scanner.nextLine();
-			
-			String ad = inputs.adIste(scanner);
-			String soyAd = inputs.soyadIste(scanner);
-			String telNo = inputs.telNoIste(scanner);
-			
-			String cizgiDeseni = desenlerim.cizgiDeseni;
-			System.out.println(cizgiDeseni);
-			
-			islemSecimi.secimYap(secim,new Person(ad, soyAd, telNo) );
-		}
-      
-       
-    }
 
-	
-	public static int secimIste(Scanner scanner) {
-		
-		metinGetir();
-		
-		System.out.println("secim");
+		secici.secimYap(scanner, inputs);
 
-		return scanner.nextInt();
-		
+
 	}
-	
-	public static void metinGetir() {
-		String tab = desenlerim.tab;
-		String altSatir = desenlerim.altSatir;
-		String ikiNoktaUstUste = desenlerim.ikiNoktaUstUste;
-		
-		
-		String metin = "Lütfen seciminizi yapınız."+tab+altSatir+
-	                   "Kisi ekle için "+ tab + tab +ikiNoktaUstUste + tab +  " 0 " +altSatir+
-				       "Ad soyada göre "+tab+tab+ikiNoktaUstUste + tab + " 1 " + altSatir+
-	                   "Kişi silmek için"+ tab + ikiNoktaUstUste + tab + " 2 " + altSatir+
-				       "Ad'a göre silmek için "+tab+ikiNoktaUstUste + tab + " 3 " + altSatir+
-	                   "Listelemek için "+tab+ikiNoktaUstUste + tab + " 4 " + altSatir+
-	                   "Durdurmak için lütfen"+tab+ikiNoktaUstUste + tab  +" 5' e basınız";
-		
-		System.out.println(metin);
+
+
+	public static void menuMetniGetir() {
+
+		System.out.println("Lütfen rehberde yapılacak işlemleri seciniz.");
+		System.out.println("0 - Kisi ekle");
+		System.out.println("1 - Ad ve soyada göre listeleme yap");
+		System.out.println("2 - Kisi sil ");
+		System.out.println("3 - Ada göre kisi sil");
+		System.out.println("4 - Cikis yap");
 		
 	}
 
-	public static boolean devamEtsinMi(boolean devamEdilsinMi) {
-		if(devamEdilsinMi == true)
-			return true;
-		else
-			return false;
-	}
-    
-  
-    
     
 }
